@@ -1,5 +1,6 @@
 """Tests for statistics functions within the Model layer."""
 
+import pytest
 import pandas as pd
 import pandas.testing as pdt
 import datetime
