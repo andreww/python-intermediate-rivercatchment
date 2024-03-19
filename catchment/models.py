@@ -7,6 +7,7 @@ data for a single measurement site, and each row represents a single measurement
 time across all sites.
 """
 
+import numpy as np
 import pandas as pd
 
 def read_variable_from_csv(filename):
@@ -56,3 +57,8 @@ def daily_min(data):
     Index must be np.datetime64 compatible format."""
     return data.groupby(data.index.date).min()
 
+
+def data_normalise(data):
+    """Normalise any given 2D data array"""
+    maxdat = np.array(np.max(data, axis=1))
+    return data / maxdat[np.newaxis, :]
